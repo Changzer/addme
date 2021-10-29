@@ -38,4 +38,9 @@ public class userController {
         }
         return idMax + 1;
     }
+
+
+    public List<User> getModels() {
+        return this.models;
+    }
 }

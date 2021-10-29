@@ -31,6 +31,12 @@ public class userView {
                 case 1:
                     menuCadastrar();
                     break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4: listarUser();
+                    break;
             }
 
         }
@@ -51,5 +57,11 @@ public class userView {
 
         User newUser = controller.cadastrar(username,firstName,lastName);
         System.out.println("usuario <" + newUser.getUsername() + "> foi cadastrado\n");
+    }
+
+    public void listarUser(){
+        for (User user: controller.getModels()) {
+            System.out.printf("ID: %d | Username: %s\n", user.getId(), user.getUsername());
+        }
     }
 }
