@@ -2,7 +2,7 @@ package Models;
 
 import java.io.Serializable;
 
-public class User implements Serializable, DAOUser {
+public class User implements Serializable{
     private long id;
     private String username;
     private String firstName;

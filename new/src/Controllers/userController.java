@@ -1,6 +1,6 @@
 package Controllers;
 
-import DAO.UserDAO;
+
 import Models.User;
 import Views.userView;
 
@@ -18,10 +18,10 @@ public class userController {
     private userView view;
     private List<User> models;
 
-    private UserDAO dao;
+
 
     public userController(){
-        this.dao = new UserDAO();
+
         this.models = new ArrayList<>();
         this.view = new userView(this);
 

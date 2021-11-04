@@ -4,6 +4,10 @@ import Controllers.palestranteController;
 import Controllers.userController;
 import Models.User;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class userView {
@@ -60,7 +64,23 @@ public class userView {
         String lastName = ler.nextLine();
 
         User newUser = controller.cadastrar(username,firstName,lastName);
-        System.out.println("usuario <" + newUser.getUsername() + "> foi cadastrado\n");
+
+
+        try {
+            File file = new File("arquivo.txt");
+            FileWriter fr = new FileWriter(file, true);
+            BufferedWriter br = new BufferedWriter(fr);
+            br.write(newUser.getUsername() + ", " + newUser.getFirstName() + ", " + newUser.getLastName());
+            br.newLine();
+            br.close();
+            fr.close();
+            System.out.println("usuario <" + newUser.getUsername() + "> foi cadastrado\n");
+
+        } catch (IOException e) {
+            System.out.println("deu errado");
+            e.printStackTrace();
+        }
+
     }
 
     public void listarUser(){
