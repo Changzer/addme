@@ -3,6 +3,9 @@ package Controllers;
 import Models.User;
 import Views.userView;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,5 +45,19 @@ public class userController {
 
     public List<User> getModels() {
         return this.models;
+    }
+
+    public File(){
+        User user = new User();
+
+        try{
+            FileWriter myWriter = new FileWriter("lista.txt");
+            myWriter.write(user.toString());
+            myWriter.close();
+            System.out.println("salvou certo");
+        } catch (IOException e){
+            System.out.println("deu errado");
+            e.printStackTrace();
+        }
     }
 }

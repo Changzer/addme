@@ -1,5 +1,6 @@
 package Views;
 
+import Controllers.palestranteController;
 import Controllers.userController;
 import Models.User;
 
@@ -17,7 +18,7 @@ public class userView {
         while(true){
             System.out.println("Menu Usuario");
             System.out.println("1 - Cadastrar");
-            System.out.println("2 - Editar");
+            System.out.println("2 - Palestra");
             System.out.println("3 - Deletar");
             System.out.println("4 - Listar");
             System.out.println("0 - Sair");
@@ -32,6 +33,7 @@ public class userView {
                     menuCadastrar();
                     break;
                 case 2:
+
                     break;
                 case 3:
                     break;
@@ -43,6 +45,8 @@ public class userView {
 
 
     }
+
+
 
     public void menuCadastrar(){
         Scanner ler = new Scanner(System.in);
