@@ -1,5 +1,6 @@
 package Controllers;
 
+import DAO.UserDAO;
 import Models.User;
 import Views.userView;
 
@@ -17,13 +18,19 @@ public class userController {
     private userView view;
     private List<User> models;
 
+    private UserDAO dao;
+
     public userController(){
+        this.dao = new UserDAO();
         this.models = new ArrayList<>();
         this.view = new userView(this);
+
     }
 
     public void start() {
+
         view.userMenu();
+
     }
 
     public User cadastrar(String username, String firstName, String lastName){
@@ -33,6 +40,7 @@ public class userController {
         return newUser;
 
     }
+
 
     public long getNewId() {
         long idMax = 0;
@@ -47,17 +55,8 @@ public class userController {
         return this.models;
     }
 
-    public File(){
-        User user = new User();
 
-        try{
-            FileWriter myWriter = new FileWriter("lista.txt");
-            myWriter.write(user.toString());
-            myWriter.close();
-            System.out.println("salvou certo");
-        } catch (IOException e){
-            System.out.println("deu errado");
-            e.printStackTrace();
-        }
-    }
+
+
+
 }
