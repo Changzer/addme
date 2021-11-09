@@ -3,3 +3,4 @@ Users{idUser=1, username='changzer', firstName='abel', lastName='chang'}
 Users{idUser=2, username='lucyanaaa', firstName='lucyana', lastName='amaral'}
 Users{idUser=1, username='kenzzz', firstName='kenzo', lastName='chang'}
 Users{idUser=1, username='changzer', firstName='abel', lastName='chang'}
+Users{idUser=1, username='changzer2', firstName='abel', lastName='chang'}

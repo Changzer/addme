@@ -23,7 +23,7 @@ public class UsersController {
 
 
     public void start(){
-        usersList();
+
         view.userMenu();
     }
 

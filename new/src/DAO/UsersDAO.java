@@ -2,10 +2,7 @@ package DAO;
 
 import Model.Users;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -62,6 +59,18 @@ public class UsersDAO {
         return UsersList;
     }
 
+    public void listar() throws Exception{
+        char[] array = new char[250];
+        try {
+            FileReader fr = new FileReader("users.txt");
+            fr.read(array);
+            System.out.println(array);
+            fr.close();
+        }   catch (Exception e) {
+            e.getStackTrace();
+        }
+    }
+
     public static boolean isNumeric(String strNum){
         if(strNum == null) {
             return false;
@@ -73,5 +82,6 @@ public class UsersDAO {
         }
         return true;
     }
+
 
 }
