@@ -1,8 +1,6 @@
-package Views;
-
-import Controllers.palestranteController;
-import Controllers.userController;
-import Models.User;
+package View;
+import Controller.UsersController;
+import Model.Users;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -10,9 +8,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class userView {
-    private userController controller;
-    public userView(userController controller){
+
+
+public class UsersView {
+
+    private UsersController controller;
+
+    public UsersView(UsersController controller){
         this.controller = controller;
     }
 
@@ -22,51 +24,40 @@ public class userView {
         while(true){
             System.out.println("Menu Usuario");
             System.out.println("1 - Cadastrar");
-            System.out.println("2 - Palestra");
-            System.out.println("3 - Deletar");
-            System.out.println("4 - Listar");
-            System.out.println("0 - Sair");
+            System.out.println("2 - Listar");
 
             int escolha = ler.nextInt();
             ler.nextLine();
 
-            switch (escolha) {
+            switch(escolha) {
                 case 0:
                     return;
                 case 1:
                     menuCadastrar();
                     break;
                 case 2:
+                    listarUser();
+                    break;
 
-                    break;
-                case 3:
-                    break;
-                case 4: listarUser();
-                    break;
             }
-
         }
-
-
     }
-
 
 
     public void menuCadastrar(){
         Scanner ler = new Scanner(System.in);
-        System.out.println("Digite um nome de Usuario");
+        System.out.println("digite um nome de usuario");
         String username = ler.nextLine();
 
-        System.out.println("Digite seu nome");
+        System.out.println("digite um nome");
         String firstName = ler.nextLine();
 
         System.out.println("Digite seu sobrenome");
         String lastName = ler.nextLine();
 
-        User newUser = controller.cadastrar(username,firstName,lastName);
+        Users newUser = controller.cadastrar(username,firstName,lastName);
 
-
-        try {
+        try{
             File file = new File("arquivo.txt");
             FileWriter fr = new FileWriter(file, true);
             BufferedWriter br = new BufferedWriter(fr);
@@ -74,18 +65,21 @@ public class userView {
             br.newLine();
             br.close();
             fr.close();
-            System.out.println("usuario <" + newUser.getUsername() + "> foi cadastrado\n");
-
-        } catch (IOException e) {
+            System.out.println("Usuario <" + newUser.getUsername() + "> foi cadastrado\n");
+        }   catch (IOException e){
             System.out.println("deu errado");
             e.printStackTrace();
         }
-
     }
 
-    public void listarUser(){
-        for (User user: controller.getModels()) {
-            System.out.printf("ID: %d | Username: %s\n", user.getId(), user.getUsername());
+    private void listarUser() {
+        for (Users users: controller.getModels()){
+            System.out.printf("ID: %d | Username: %s \n", users.getIdUser(), users.getUsername());
         }
     }
+
+    public void usersList() throws IOException {
+        System.out.println(controller.usersList());
+    }
+
 }
